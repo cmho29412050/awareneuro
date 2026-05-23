@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply antialiased transition-colors duration-500 bg-slate-50 text-slate-800 dark:bg-[#0b0f19] dark:text-slate-200;
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Smooth container override for full width layout */
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-inline: none !important;
+  min-height: 100vh !important;
+  text-align: left !important;
+}
+
+/* Neural Oscillation Path Animation */
+@keyframes neuralFlow {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.neural-flow-active {
+  stroke-dasharray: 12, 6;
+  animation: neuralFlow 3s linear infinite;
+}
+
+.neural-flow-hyperactive {
+  stroke-dasharray: 6, 3;
+  animation: neuralFlow 1s linear infinite;
+}
+
+.neural-flow-subdued {
+  stroke-dasharray: 24, 12;
+  animation: neuralFlow 8s linear infinite;
+}
+
+/* SN Flash alert */
+@keyframes alertPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.6;
+  }
+}
+
+.sn-alert-pulse {
+  animation: alertPulse 1s ease-in-out infinite;
+}
+
+/* Dynamic gradient transitions */
+.gradient-text-indigo-emerald {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-teal-500 to-emerald-500 dark:from-indigo-400 dark:via-teal-400 dark:to-emerald-400;
+}
